@@ -1,0 +1,114 @@
+/* 清除内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+/* structural elements 结构元素 */
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+/* list elements 列表元素 */
+pre,
+/* text formatting elements 文本格式元素 */
+fieldset,
+legend,
+button,
+input,
+textarea,
+/* form elements 表单元素 */
+th,
+td {
+	/* table elements 表格元素 */
+	margin: 0;
+	padding: 0;
+}
+
+/* 设置默认字体 */
+html > body,
+button,
+input,
+select,
+textarea {
+	/* Mac 默认：Helvetica STXihei '华文细黑' */
+	/* Win 默认：Tahoma 'Microsoft YaHei' '微软雅黑' */
+	/* Arial 为两个系统英文通用 */
+	/* Heiti '黑体' 为 Mac 保底 */
+	/* SimSun '宋体' 为 Win 保底，主要用于 XP  */
+	/* sans-serif 所有字体缺失时使用  */
+	/* PingFangSC-Regular 为本项目默认字体  */
+	font-family: PingFangSC-Regular, Helvetica, Tahoma, Arial, STXihei, '华文细黑', Heiti, '黑体',
+		'Microsoft YaHei', '微软雅黑', SimSun, '宋体', sans-serif;
+}
+
+/* 将斜体扶正 */
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
+}
+
+/* 重置列表元素 */
+ul,
+ol {
+	list-style: none;
+}
+
+/* 重置文本格式元素 */
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+abbr[title],
+acronym[title] {
+	/* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+/* 重置表单元素 */
+legend {
+	color: #000;
+}
+
+/* for ie6 */
+/* img 搭车：让链接里的 img 无边框 */
+fieldset,
+img {
+	border: none;
+}
+
+/* 注：optgroup 无法扶正 */
+button,
+input,
+select,
+textarea {
+	/* 使得表单元素在 ie 下能继承字体大小 */
+	font-size: 100%;
+}
+
+/* 重置表格元素 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+	border: none;
+	height: 1px;
+}

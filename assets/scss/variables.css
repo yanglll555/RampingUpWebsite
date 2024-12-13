@@ -1,0 +1,10 @@
+
+:root {
+	--gutterWidth: 120px;
+	--h5-gutterWidth: 20px;
+	--contentWidth: 1440px;
+	--backColor: #0A0A0A;
+	--headerHeight: 86px;
+	--h5-headerHeight: 64px;
+	--h5-sidebarWidth: 280px;
+}
