@@ -24,15 +24,13 @@ jobs:
       - name: npm install, build, and start
         run: |
           npm install
-          npm run build
-          npm run start
-
+          npm run buil          
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,6 +45,9 @@ jobs:
         with:
           name: node-app
 
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
@@ -54,4 +55,4 @@ jobs:
           app-name: 'RampingUpWebsiteTest'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_01CA236DE85D45D7B3E103C29E374421 }}
-          package: .
+          package: './release.zip'
