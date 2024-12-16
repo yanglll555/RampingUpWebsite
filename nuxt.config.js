@@ -7,10 +7,13 @@ import fetch from 'node-fetch';
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
+  server: {
+    port: process.env.PORT || 3000, // 默认 3000
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head() {
     return {
-      title: 'Ramping Up: Remote Hiring and Management Solution',
+      title: 'Ramping Up: Remote Hiring and Management Solution1',
       htmlAttrs: {
         lang: 'en'
       },
