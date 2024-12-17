@@ -2,6 +2,9 @@
 	"name": "rampingup-website",
 	"version": "1.0.0",
 	"private": true,
+	"engines": {
+    "node": "16.20.2"
+  },
 	"scripts": {
 		"lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
 		"lint:fix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
