@@ -7,5 +7,11 @@
   // "files.autoSave": "onFocusChange", // auto save after focus change
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/227d9e6b-2301-4b6f-ba3c-fec5e068c8d5/resourceGroups/defaultresourcegroup-ccan/providers/Microsoft.Web/sites/testRamping",
+  "appService.deploySubpath": "."
 }
