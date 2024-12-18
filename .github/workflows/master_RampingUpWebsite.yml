@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://rampingupwebsitecontainer.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_fc460c6c2cb8453d932289a8efcf8a35 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_8116e7d41ef744c3b13d74fd0b6d80d5 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_3f4eea971a79458a898a999c842cdb88 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}/rampingupwebsitecontainer.azurecr.io:${{ github.sha }}
+        tags: rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8116e7d41ef744c3b13d74fd0b6d80d5 }}/mcr.microsoft.com/azuredocs/aci-helloworld:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'RampingUpWebsite'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_47990a65a7454d3d9b8626cc3a3ed064 }}
-        images: 'rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}/rampingupwebsitecontainer.azurecr.io:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4606cec4e9324633b8e149e040d46a47 }}
+        images: 'rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8116e7d41ef744c3b13d74fd0b6d80d5 }}/mcr.microsoft.com/azuredocs/aci-helloworld:${{ github.sha }}'
