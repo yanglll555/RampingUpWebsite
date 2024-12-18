@@ -1,0 +1,51 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - RampingUpWebsite
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to registry
+      uses: docker/login-action@v2
+      with:
+        registry: https://rampingupwebsitecontainer.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_fc460c6c2cb8453d932289a8efcf8a35 }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}/rampingupwebsitecontainer.azurecr.io:${{ github.sha }}
+        file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'RampingUpWebsite'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_47990a65a7454d3d9b8626cc3a3ed064 }}
+        images: 'rampingupwebsitecontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2c73fee38a8d4890b655d72ca03f35f1 }}/rampingupwebsitecontainer.azurecr.io:${{ github.sha }}'
