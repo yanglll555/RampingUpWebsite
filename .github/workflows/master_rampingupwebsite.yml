@@ -41,7 +41,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present          
-          npm run test --if-present
+          npm run test
           
       - name: Delay to avoid SCM container restart
         run: sleep 10
@@ -61,7 +61,3 @@ jobs:
           app-name: 'RampingUpWebsite'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F64BCE477C064145BD9796042E5EEB9D }}
-
-      - name: npm start
-        run: |
-          npm run start
