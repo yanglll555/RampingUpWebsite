@@ -26,13 +26,13 @@
 		"vue": "^2.7.15",
 		"vue-gtag": "^1.16.1",
 		"vue-server-renderer": "^2.7.15",
-		"vue-template-compiler": "^2.7.10"
+		"vue-template-compiler": "^2.7.10",
+		"cross-env": "^7.0.3"
 	},
 	"devDependencies": {
 		"@aceforth/nuxt-optimized-images": "^1.4.0",
 		"@nuxtjs/sitemap": "^2.4.0",
 		"babel-plugin-component": "^1.1.1",
-		"cross-env": "^7.0.3",
 		"eslint": "^8.37.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-nuxt": "^4.0.0",
