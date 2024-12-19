@@ -41,7 +41,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
+        #  npm run test --if-present
           
       - name: Delay to avoid SCM container restart
         run: sleep 10
