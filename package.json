@@ -10,7 +10,7 @@
 		"lint:fix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
 		"dev": "cross-env MODE=dev nuxt",
 		"build": "set NODE_OPTIONS=--openssl-legacy-provider & cross-env MODE=prod nuxt build",
-		"start": "cross-env MODE=prod nuxt start",
+		"start": "cross-env MODE=prod node_modules/nuxt/bin/nuxt.js start",
 		"generate": "cross-env MODE=prod nuxt generate",
 		"generate:prod": "cross-env MODE=prod nuxt generate",
 		"generate:staging": "cross-env MODE=staging nuxt generate"
